@@ -1,0 +1,50 @@
+#!/bin/bash
+
+getBasedir()
+{
+    local filename="$0"
+
+    while [ -h "$filename" ]
+    do
+        local ls=$(ls -ld "$filename")
+        local link=$(expr "$ls" : '.*-> \(.*\)$')
+
+        if expr "$link" : '/.*' > /dev/null
+        then
+            filename="$link"
+        else
+            filename=$(dirname "$filename")/"$link"
+        fi
+    done
+
+    echo $(dirname $filename)
+}
+
+main()
+{
+    local input="$(pwd)/$1"
+    shift
+    local output=${input/.xmind/.tex}
+
+    if [ $# -eq 1 ]
+    then
+        output="$(pwd)/$2"
+        shift
+    fi
+
+    cd $(getBasedir $0)
+
+    xmind2latex $* -t 5 -i $input -o $output \
+        -e 1 templates/title_{start,end}.ftl -l 1 templates/title.ftl \
+        -e 2 templates/section_{start,end}.ftl -l 2 templates/section.ftl \
+        -e 3 templates/subsection_{start,end}.ftl -l 3 templates/subsection.ftl \
+        -e 4 templates/list_{start,end}.ftl -l 4 templates/list.ftl \
+        -e 5 templates/sublist_{start,end}.ftl -l 5 templates/sublist.ftl
+}
+
+if [ $# -eq 0 ]
+then
+    $0 input.xmind [output.tex [xmind2latex extra options]]
+fi
+
+main $*

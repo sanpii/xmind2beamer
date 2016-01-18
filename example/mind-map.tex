@@ -1,0 +1,125 @@
+% {{{ Packages
+
+% {{{ Versions
+% version écran
+\documentclass{beamer}
+
+% version orateur
+%\documentclass[8pt]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+%\setbeameroption{show notes}
+
+% version spectateur
+%\documentclass[handout]{beamer}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{1 on 1 with notes}[a4paper,border shrink=5mm]
+% }}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{tikz}
+\usetheme{Goettingen}
+
+% }}}
+
+\title{xmind2beamer}
+\author{}
+
+\begin{document}
+% {{{ Titre
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\note[itemize]{
+}
+% }}}
+
+
+% {{{ Introduction
+\section{Introduction}
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\note{
+}
+% }}}
+
+% {{{ Installation
+\section{Installation}
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\note{
+}
+% {{{ Get sources
+\begin{frame}
+    \frametitle{Get sources}
+
+    \begin{itemize}[<+->]
+        \item{git clone}
+    \end{itemize}
+
+\end{frame}
+
+\note{
+}
+% }}}
+% {{{ Install script
+\begin{frame}
+    \frametitle{Install script}
+
+    \begin{itemize}[<+->]
+        \item{ln -s}
+    \end{itemize}
+
+\end{frame}
+
+\note{
+}
+% }}}
+% }}}
+
+% {{{ Usage
+\section{Usage}
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\note{
+}
+% {{{ Convert xmind to tex
+\begin{frame}
+    \frametitle{Convert xmind to tex}
+
+    \begin{itemize}[<+->]
+        \item{xmind2bemear input.xmind}
+    \end{itemize}
+
+    \begin{itemize}[<+->]
+        \item{xmind2beamer input.xmind -f}
+    \end{itemize}
+
+\end{frame}
+
+\note{
+}
+% }}}
+% {{{ Convert text to pdf
+\begin{frame}
+    \frametitle{Convert text to pdf}
+
+    \begin{itemize}[<+->]
+        \item{pdflatex input.tex}
+    \end{itemize}
+
+\end{frame}
+
+\note{
+}
+% }}}
+% }}}
+\end{document}

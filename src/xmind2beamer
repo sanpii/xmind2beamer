@@ -26,9 +26,9 @@ main()
     shift
     local output=${input/.xmind/.tex}
 
-    if [ $# -eq 1 ]
+    if [[ $# -gt 1 && $1 != -* ]]
     then
-        output="$(pwd)/$2"
+        output="$(pwd)/$1"
         shift
     fi
 
@@ -42,7 +42,7 @@ main()
         -e 5 templates/sublist_{start,end}.ftl -l 5 templates/sublist.ftl
 }
 
-if [ $# -eq 0 ]
+if [[ $# -eq 0 ]]
 then
     $0 input.xmind [output.tex [xmind2latex extra options]]
 fi
